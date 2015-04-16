@@ -450,6 +450,21 @@ class Server
         );
     }
 
+
+    /**
+     * Gets all mailboxes information.
+     *
+     * @return array
+     */
+    public function getMailboxes()
+    {
+        return  imap_getmailboxes(
+            $this->getImapStream(),
+            $this->getServerString(),
+            $this->getServerSpecification() . "*"
+        );
+    }
+    
     /**
      * Creates the given mailbox.
      *
